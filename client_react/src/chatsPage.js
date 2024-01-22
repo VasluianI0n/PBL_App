@@ -13,4 +13,26 @@ const ChatsPage = (props) => {
   );
 };
 
+function hashString(input) {
+  try {
+      // Create a Hash object with the SHA-256 algorithm
+      const hash = crypto.createHash('sha256');
+
+      // Update the hash with the input string
+      hash.update(input);
+
+      // Get the hashed bytes
+      const hashedBytes = hash.digest();
+
+      // Convert the byte array to a hexadecimal representation
+      const hashedString = hashedBytes.toString('hex');
+
+      // Return the hashed string
+      return hashedString;
+  } catch (error) {
+      console.error(error); // Handle the error appropriately in your actual code
+      return null; // Return null in case of an error
+  }
+}
+
 export default ChatsPage;
