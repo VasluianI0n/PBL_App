@@ -5,8 +5,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import org.json.JSONObject;
 
@@ -23,8 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 @RestController
 public class UserController {
-    private static String CHAT_ENGINE_PROJECT_ID = "70be26e6-cd1c-403d-b0b3-1033f34daf36";
-    private static String CHAT_ENGINE_PRIVATE_KEY = "ac7644c0-7a82-4cd9-87fb-afe5c455e012";
+    private static String CHAT_ENGINE_PROJECT_ID = "4b6408a6-124b-4066-ae71-e71084454638";
+    private static String CHAT_ENGINE_PRIVATE_KEY = "86f559f9-50d5-4c79-8068-72efa3e2bf7b";
 
     @CrossOrigin
     @RequestMapping(path = "/login", method = RequestMethod.POST)
@@ -112,6 +115,22 @@ public class UserController {
             if (con != null) {
                 con.disconnect();
             }
+        }
+    }
+
+    public String hashString(String password){
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] hashedBytes = md.digest();
+            StringBuilder hexStringBuilder = new StringBuilder();
+            for (byte b : hashedBytes) {
+                hexStringBuilder.append(String.format("%02x", b));
+            }
+            return hexStringBuilder.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
