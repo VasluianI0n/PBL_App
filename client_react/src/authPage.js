@@ -49,7 +49,7 @@ const AuthPage = (props) => {
             placeholder="Password"
             onChange={(e) => setSecret(e.target.value)}
           />
-          <button type="submit">LOG IN</button>
+          <button type="submit">LOGIN</button>
         </form>
 
         {/* Sign Up Form */}
@@ -90,12 +90,12 @@ const AuthPage = (props) => {
       </div>
 
       <style>{`
-      .login-page { width: 100vw; height: 100vh; padding-top: 6vw; background-color: #ffffff; }
+      .login-page { width: 100vw; height: 100vh; padding-top: 6vw; background-color: #282B36; }
       .card { width: 200px; position: relative; left: calc(50vw - 100px); text-align: center; }
-      .title { padding-top: 32px; font-size: 22px; color: black; font-weight: 700; }
-      input { width: calc(100% - 16px); margin-top: 12px; padding: 8px; background-color: #e6f7ff; outline: none; border: 1px solid #e6f7ff; }
-      button { margin-top: 12px; width: 100%; border-radius: 4px; background-color: #7797e3; color: white ;transition: 0.3s; padding: 10px 16px; cursor:pointer}
-      button:hover {background-color: #eef1ff4a;color: black;}
+      .title { padding-top: 32px; font-size: 22px; color: white; font-weight: 700}
+      input { width: calc(100% - 16px); margin-top: 12px; padding: 8px; background-color: #EAEAEB; outline: none; border: 1px solid #e6f7ff}
+      button { margin-top: 12px; width: 100%; border-radius: 4px; background-color: #D8DAD3; color: #3A3C44 ;transition: 0.3s; padding: 10px 16px; cursor:pointer; font-weight: 800}
+      button:hover {background-color: #907F9F;color: white;}
       `}</style>
     </div>
   );
